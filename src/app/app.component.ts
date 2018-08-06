@@ -12,18 +12,22 @@ export class AppComponent {
   autoTicks = false;
   disabled = false;
   invert = false;
-  max = 100;
-  min = 0;
-  showTicks = false;
-  step = 1;
-  thumbLabel = false;
-  value = 0;
+  max = 20;
+  min = -20;
+  showTicks = true;
+  step = 0.25;
+  thumbLabel = true;
+  f = 0; // 0.25 steps (-20 to +20)
   vertical = true;
 
   onChange(event) {
-    this.value = event.value;
+    this.f = event.value;
   }
-  
+
+  // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
+  fc(x:number):number {
+    return this.f / (1 - x * this.f);
+  }
   get tickInterval(): number | 'auto' {
     return this.showTicks ? (this.autoTicks ? 'auto' : this._tickInterval) : 0;
   }

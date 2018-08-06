@@ -2,6 +2,7 @@
 
 <!--  -->
 
+<ul>
 <h3>
 <mat-slider
 class="example-margin"
@@ -12,11 +13,20 @@ class="example-margin"
 [step]="step"
 [thumbLabel]="thumbLabel"
 [tickInterval]="tickInterval"
-[value]="value"
+[value]="f"
 (input)="onChange($event)"
 [vertical]="vertical">
 </mat-slider>
 
-value={{value}}
-</h3>
+<table border=3>
+  <tr>
+    <th>F</th><th>x=10</th><th>x=11</th><th>x=12</th><th>x=13</th><th>x=14</th>
+  </tr>
+  <tr>
+    <td>{{f}}</td><td>{{fc(10)}}</td><td>{{fc(11)}}</td>
+    <td>{{fc(12)}}</td><td>{{fc(13)}}</td><td>{{fc(14)}}</td>
+    </tr>
+</table>
 
+</h3>
+</ul>
