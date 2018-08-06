@@ -26,7 +26,8 @@ export class AppComponent {
 
   // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
   fc(x:number):number {
-    return this.f / (1 - x * this.f);
+    // TODO(MGP): Round up or down to the nearest quarter.
+    return this.f - (this.f / (1 - x * this.f));
   }
   get tickInterval(): number | 'auto' {
     return this.showTicks ? (this.autoTicks ? 'auto' : this._tickInterval) : 0;
