@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align:center\">\n  <h1>\n    Welcome to {{ title }}!\n  </h1>\n</div>\n\n<!--  -->\n<mat-slider vertical></mat-slider>\n\n<mat-slider\nclass=\"example-margin\"\n[disabled]=\"disabled\"\n[invert]=\"invert\"\n[max]=\"max\"\n[min]=\"min\"\n[step]=\"step\"\n[thumbLabel]=\"thumbLabel\"\n[tickInterval]=\"tickInterval\"\n[value]=\"value\"\n(input)=\"onChange($event)\"\n[vertical]=\"vertical\">\n</mat-slider>\n\n<h3>value={{value}}</h3>\n\n<h2>Here are some links to help you start: </h2>\n<ul>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://angular.io/tutorial\">Tour of Heroes</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://github.com/angular/angular-cli/wiki\">CLI Documentation</a></h2>\n  </li>\n  <li>\n    <h2><a target=\"_blank\" rel=\"noopener\" href=\"https://blog.angular.io/\">Angular blog</a></h2>\n  </li>\n</ul>\n\n"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<!--  -->\n\n<ul>\n<h3>\n<mat-slider\nclass=\"example-margin\"\n[disabled]=\"disabled\"\n[invert]=\"invert\"\n[max]=\"max\"\n[min]=\"min\"\n[step]=\"step\"\n[thumbLabel]=\"thumbLabel\"\n[tickInterval]=\"tickInterval\"\n[value]=\"f\"\n(input)=\"onChange($event)\"\n[vertical]=\"vertical\">\n</mat-slider>\n\n<table border=3>\n  <tr>\n    <th>F</th><th>x=10</th><th>x=11</th><th>x=12</th><th>x=13</th><th>x=14</th>\n  </tr>\n  <tr>\n    <td>{{f}}</td><td>{{fc(10)}}</td><td>{{fc(11)}}</td>\n    <td>{{fc(12)}}</td><td>{{fc(13)}}</td><td>{{fc(14)}}</td>\n    </tr>\n</table>\n\n</h3>\n</ul>\n"
 
 /***/ }),
 
@@ -71,17 +71,21 @@ var AppComponent = /** @class */ (function () {
         this.autoTicks = false;
         this.disabled = false;
         this.invert = false;
-        this.max = 100;
-        this.min = 0;
-        this.showTicks = false;
-        this.step = 1;
-        this.thumbLabel = false;
-        this.value = 0;
+        this.max = 20;
+        this.min = -20;
+        this.showTicks = true;
+        this.step = 0.25;
+        this.thumbLabel = true;
+        this.f = 0; // 0.25 steps (-20 to +20)
         this.vertical = true;
         this._tickInterval = 1;
     }
     AppComponent.prototype.onChange = function (event) {
-        this.value = event.value;
+        this.f = event.value;
+    };
+    // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
+    AppComponent.prototype.fc = function (x) {
+        return this.f / (1 - x * this.f);
     };
     Object.defineProperty(AppComponent.prototype, "tickInterval", {
         get: function () {
