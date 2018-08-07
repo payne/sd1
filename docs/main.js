@@ -41,7 +41,7 @@ module.exports = ""
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<!--  -->\n\n<ul>\n<h3>\n<mat-slider\nclass=\"example-margin\"\n[disabled]=\"disabled\"\n[invert]=\"invert\"\n[max]=\"max\"\n[min]=\"min\"\n[step]=\"step\"\n[thumbLabel]=\"thumbLabel\"\n[tickInterval]=\"tickInterval\"\n[value]=\"f\"\n(input)=\"onChange($event)\"\n[vertical]=\"vertical\">\n</mat-slider>\n\n<style>\ntable.fixed {table-layout:fixed; width:600px;}/*Setting the table width is important!*/\ntable.fixed td {overflow:hidden;}/*Hide text outside the cell.*/\ntable.fixed td:nth-of-type(1) {width:20px;}/*Setting the width of column 1.*/\ntable.fixed td:nth-of-type(2) {width:30px;}/*Setting the width of column 2.*/\ntable.fixed td:nth-of-type(3) {width:40px;}/*Setting the width of column 3.*/\n</style>\n<table border=3 class=\"fixed\">\n  <tr>\n    <th>F</th><th>x=10</th><th>x=11</th><th>x=12</th><th>x=13</th><th>x=14</th>\n  </tr>\n  <tr>\n    <td>{{f}}</td><td>{{fc(10) | number:'1.1-3'}}</td><td>{{fc(11) | number:'1.1-3'}}</td>\n    <td>{{fc(12) | number:'1.1-3'}}</td><td>{{fc(13) | number:'1.1-3'}}</td><td>{{fc(14) | number:'1.1-3'}}</td>\n    </tr>\n</table>\n\n</h3>\n</ul>\n"
+module.exports = "<mat-tab-group>\n    <mat-tab label=\"Vertex Distance\">\n      <a href=\"https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1\">https://en.m.wikipedia.org/wiki/Vertex_distance</a>\n<ul>\n<h3>\n<mat-slider\nclass=\"example-margin\"\n[disabled]=\"disabled\"\n[invert]=\"invert\"\n[max]=\"max\"\n[min]=\"min\"\n[step]=\"step\"\n[thumbLabel]=\"thumbLabel\"\n[tickInterval]=\"tickInterval\"\n[value]=\"f\"\n(input)=\"onChangeVertexDistance($event)\"\n[vertical]=\"vertical\">\n</mat-slider>\n\n<style>\ntable.fixed {table-layout:fixed; width:600px;}/*Setting the table width is important!*/\ntable.fixed td {overflow:hidden;}/*Hide text outside the cell.*/\ntable.fixed td:nth-of-type(1) {width:20px;}/*Setting the width of column 1.*/\ntable.fixed td:nth-of-type(2) {width:30px;}/*Setting the width of column 2.*/\ntable.fixed td:nth-of-type(3) {width:40px;}/*Setting the width of column 3.*/\n</style>\n<table border=3 class=\"fixed\">\n  <tr>\n    <th>F</th><th>x=10</th><th>x=11</th><th>x=12</th><th>x=13</th><th>x=14</th>\n  </tr>\n  <tr>\n    <td>{{f}}</td><td>{{fc(10) | number:'1.1-3'}}</td><td>{{fc(11) | number:'1.1-3'}}</td>\n    <td>{{fc(12) | number:'1.1-3'}}</td><td>{{fc(13) | number:'1.1-3'}}</td><td>{{fc(14) | number:'1.1-3'}}</td>\n    </tr>\n</table>\n\n</h3>\n</ul>\n</mat-tab>\n    <mat-tab label=\"Diopters to mm\">\n      <p>Formula: mm = 337.5 / X, where X is diopters.</p>\n{{mm() | number:'1.1-3'}} mm = 337.5 / {{d}}\n<mat-slider\nclass=\"example-margin\"\n[disabled]=\"disabled\"\n[invert]=\"invert\"\n[max]=\"max\"\n[min]=\"min\"\n[step]=\"step\"\n[thumbLabel]=\"thumbLabel\"\n[tickInterval]=\"tickInterval\"\n[value]=\"diopters\"\n(input)=\"onChangeDiopters($event)\"\n[vertical]=\"vertical\">\n</mat-slider>\n    </mat-tab> \n</mat-tab-group>"
 
 /***/ }),
 
@@ -68,6 +68,7 @@ var __decorate = (undefined && undefined.__decorate) || function (decorators, ta
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'app';
+        this.d = 1;
         this.autoTicks = false;
         this.disabled = false;
         this.invert = false;
@@ -80,12 +81,20 @@ var AppComponent = /** @class */ (function () {
         this.vertical = true;
         this._tickInterval = 1;
     }
-    AppComponent.prototype.onChange = function (event) {
+    AppComponent.prototype.onChangeVertexDistance = function (event) {
         this.f = event.value;
+    };
+    AppComponent.prototype.onChangeDiopters = function (event) {
+        this.d = event.value;
+    };
+    AppComponent.prototype.mm = function () {
+        // Formula: mm = 337.5 / X, where X is diopters.  
+        return 337.5 / this.d;
     };
     // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
     AppComponent.prototype.fc = function (x) {
-        return this.f / (1 - x * this.f);
+        // TODO(MGP): Round up or down to the nearest quarter.
+        return this.f - (this.f / (1 - x * this.f));
     };
     Object.defineProperty(AppComponent.prototype, "tickInterval", {
         get: function () {
@@ -148,7 +157,9 @@ var AppModule = /** @class */ (function () {
                 _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]
             ],
             imports: [
-                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"], _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"],
+                _angular_platform_browser__WEBPACK_IMPORTED_MODULE_0__["BrowserModule"], _angular_platform_browser_animations__WEBPACK_IMPORTED_MODULE_2__["BrowserAnimationsModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatButtonModule"], _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatCheckboxModule"],
+                _angular_material__WEBPACK_IMPORTED_MODULE_3__["MatTabsModule"],
+                _angular_material_slider__WEBPACK_IMPORTED_MODULE_4__["MatSliderModule"],
             ],
             providers: [],
             bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
