@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  diopters = 1;
+  d = 1;
   autoTicks = false;
   disabled = false;
   invert = false;
@@ -25,12 +25,12 @@ export class AppComponent {
   }
 
   onChangeDiopters(event) {
-    this.diopters = event.value;
+    this.d = event.value;
   }
 
   mm():number {
     // Formula: mm = 337.5 / X, where X is diopters.  
-    return 337.5 / this.diopters;
+    return 337.5 / this.d;
   }
 
   // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
