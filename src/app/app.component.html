@@ -5,6 +5,7 @@
       <mat-slider class="focus" [disabled]="disabled" [invert]="invert" [max]="max" [min]="min" [step]="step" [thumbLabel]="thumbLabel"
         [tickInterval]="tickInterval" [value]="f" (input)="onChangeVertexDistance($event)" [vertical]="vertical">
       </mat-slider>
+      <input [(ngModel)]="f" type="text" />
     </ul>
     <h3>
       <table border=3 class="fixed">
@@ -40,14 +41,15 @@
       <mat-slider class="diopters" [disabled]="disabled" [invert]="invert" [max]="dmax" [min]="dmin" [step]="step" [thumbLabel]="thumbLabel"
         [tickInterval]="tickInterval" [value]="d" (input)="onChangeDiopters($event)" [vertical]="vertical">
       </mat-slider>
+      <input [(ngModel)]="d" type="text" />
     </ul>
     {{mm() | number:'1.1-3'}} mm = 337.5 / {{d}}
   </mat-tab>
   <mat-tab label="About">
     <ol>
       <li>Built with love for TPOD.</li>
-      <li>Build date: 8/12/2018 at 17:06pm</li>
-      <li>Version 0.0.2</li>
+      <li>Build date: 8/12/2018 at 17:42pm</li>
+      <li>Version 0.0.3</li>
     </ol>
   </mat-tab>
 

@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule,MatTabsModule} from '@angular/material';
-import {MatSliderModule} from '@angular/material/slider';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule, MatTabsModule } from '@angular/material';
+import { MatSliderModule } from '@angular/material/slider';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -10,9 +11,10 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule,MatButtonModule, MatCheckboxModule,
+    BrowserModule, BrowserAnimationsModule, MatButtonModule, MatCheckboxModule,
     MatTabsModule,
     MatSliderModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
