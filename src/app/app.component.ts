@@ -1,4 +1,4 @@
-import {coerceNumberProperty} from '@angular/cdk/coercion';
+import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Component } from '@angular/core';
 
 @Component({
@@ -29,13 +29,13 @@ export class AppComponent {
     this.d = event.value;
   }
 
-  mm():number {
-    // Formula: mm = 337.5 / X, where X is diopters.  
+  mm(): number {
+    // Formula: mm = 337.5 / X, where X is diopters.
     return 337.5 / this.d;
   }
 
   // https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1
-  fc(x:number):number {
+  fc(x: number): number {
     // TODO(MGP): Round up or down to the nearest quarter.
     return this.f - (this.f / (1 - x * this.f));
   }
@@ -46,3 +46,4 @@ export class AppComponent {
     this._tickInterval = coerceNumberProperty(value);
   }
 }
+
