@@ -13,7 +13,9 @@ export class AppComponent {
   disabled = false;
   invert = false;
   max = 20;
+  dmax = 50;
   min = -20;
+  dmin = 0;
   showTicks = true;
   step = 0.25;
   thumbLabel = true;
