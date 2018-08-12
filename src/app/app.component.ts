@@ -19,6 +19,7 @@ export class AppComponent {
   thumbLabel = true;
   f = 0; // 0.25 steps (-20 to +20)
   vertical = true;
+  private _tickInterval = 1;
 
   onChangeVertexDistance(event) {
     this.f = event.value;
@@ -44,6 +45,4 @@ export class AppComponent {
   set tickInterval(value) {
     this._tickInterval = coerceNumberProperty(value);
   }
-  private _tickInterval = 1;
-
 }
