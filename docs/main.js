@@ -41,7 +41,7 @@ module.exports = "table.fixed {\r\n  table-layout: fixed;\r\n  width: 240px;\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<mat-tab-group>\n  <mat-tab label=\"Vertex Distance\">\n    <a href=\"https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1\">https://en.m.wikipedia.org/wiki/Vertex_distance</a>\n    <ul>\n      <mat-slider class=\"focus\" [disabled]=\"disabled\" [invert]=\"invert\" [max]=\"max\" [min]=\"min\" [step]=\"step\" [thumbLabel]=\"thumbLabel\"\n        [tickInterval]=\"tickInterval\" [value]=\"f\" (input)=\"onChangeVertexDistance($event)\" [vertical]=\"vertical\">\n      </mat-slider>\n      <input [(ngModel)]=\"f\" type=\"text\" />\n    </ul>\n    <h3>\n      <table border=3 class=\"fixed\">\n        <tr>\n          <th>F</th>\n          <th>x=10</th>\n          <th>x=11</th>\n        </tr>\n        <tr>\n          <td>{{f}}</td>\n          <td>{{fc(10) | number:'1.1-3'}}</td>\n          <td>{{fc(11) | number:'1.1-3'}}</td>\n        </tr>\n      </table>\n      <table border=3 class=\"fixed\">\n        <tr>\n          <th>x=12</th>\n          <th>x=13</th>\n          <th>x=14</th>\n        </tr>\n        <tr>\n          <td>{{fc(12) | number:'1.1-3'}}</td>\n          <td>{{fc(13) | number:'1.1-3'}}</td>\n          <td>{{fc(14) | number:'1.1-3'}}</td>\n        </tr>\n      </table>\n    </h3>\n  </mat-tab>\n\n  <mat-tab label=\"Diopters to mm\">\n    <p>Formula: mm = 337.5 / X, where X is diopters.</p>\n    <ul>\n      <mat-slider class=\"diopters\" [disabled]=\"disabled\" [invert]=\"invert\" [max]=\"dmax\" [min]=\"dmin\" [step]=\"step\" [thumbLabel]=\"thumbLabel\"\n        [tickInterval]=\"tickInterval\" [value]=\"d\" (input)=\"onChangeDiopters($event)\" [vertical]=\"vertical\">\n      </mat-slider>\n      <input [(ngModel)]=\"d\" type=\"text\" />\n    </ul>\n    {{mm() | number:'1.1-3'}} mm = 337.5 / {{d}}\n  </mat-tab>\n  <mat-tab label=\"About\">\n    <ol>\n      <li>Built with love for TPOD.</li>\n      <li>Build date: 8/12/2018 at 17:42pm</li>\n      <li>Version 0.0.3</li>\n    </ol>\n  </mat-tab>\n\n</mat-tab-group>\n"
+module.exports = "<mat-tab-group>\n  <mat-tab label=\"Vertex Distance\">\n    <a href=\"https://en.m.wikipedia.org/wiki/Vertex_distance?wprov=sfti1\">https://en.m.wikipedia.org/wiki/Vertex_distance</a>\n    <ul>\n      <mat-slider class=\"focus\" [disabled]=\"disabled\" [invert]=\"invert\" [max]=\"max\" [min]=\"min\" [step]=\"step\" [thumbLabel]=\"thumbLabel\"\n        [tickInterval]=\"tickInterval\" [value]=\"f\" (input)=\"onChangeVertexDistance($event)\" [vertical]=\"vertical\">\n      </mat-slider>\n      <input [(ngModel)]=\"f\" type=\"text\" />\n    </ul>\n    <h3>\n      <table border=3 class=\"fixed\">\n        <tr>\n          <th>F</th>\n          <th>x=10</th>\n          <th>x=11</th>\n        </tr>\n        <tr>\n          <td>{{f}}</td>\n          <td>{{fc(10) | number:'1.1-3'}}</td>\n          <td>{{fc(11) | number:'1.1-3'}}</td>\n        </tr>\n      </table>\n      <table border=3 class=\"fixed\">\n        <tr>\n          <th>x=12</th>\n          <th>x=13</th>\n          <th>x=14</th>\n        </tr>\n        <tr>\n          <td>{{fc(12) | number:'1.1-3'}}</td>\n          <td>{{fc(13) | number:'1.1-3'}}</td>\n          <td>{{fc(14) | number:'1.1-3'}}</td>\n        </tr>\n      </table>\n    </h3>\n  </mat-tab>\n\n  <mat-tab label=\"Diopters to mm\">\n    <p>Formula: mm = 337.5 / X, where X is diopters.</p>\n    <ul>\n      <mat-slider class=\"diopters\" [disabled]=\"disabled\" [invert]=\"invert\" [max]=\"dmax\" [min]=\"dmin\" [step]=\"step\" [thumbLabel]=\"thumbLabel\"\n        [tickInterval]=\"tickInterval\" [value]=\"d\" (input)=\"onChangeDiopters($event)\" [vertical]=\"vertical\">\n      </mat-slider>\n      <input [(ngModel)]=\"d\" type=\"text\" />\n    </ul>\n    {{mm() | number:'1.1-3'}} mm = 337.5 / {{d}}\n  </mat-tab>\n  <mat-tab label=\"About\">\n    <ol>\n      <li>Built with love for TPOD.</li>\n      <li>Build date: 8/12/2018 at 21:02pm</li>\n      <li>Version 0.0.4</li>\n    </ol>\n  </mat-tab>\n\n</mat-tab-group>\n"
 
 /***/ }),
 
@@ -57,16 +57,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppComponent", function() { return AppComponent; });
 /* harmony import */ var _angular_cdk_coercion__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/cdk/coercion */ "./node_modules/@angular/cdk/esm5/coercion.es5.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/cdk/overlay */ "./node_modules/@angular/cdk/esm5/overlay.es5.js");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+var __metadata = (undefined && undefined.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
 
 
 var AppComponent = /** @class */ (function () {
-    function AppComponent() {
+    function AppComponent(overlay) {
+        this.overlay = overlay;
         this.title = 'app';
         this.d = 1;
         this.autoTicks = false;
@@ -83,6 +89,11 @@ var AppComponent = /** @class */ (function () {
         this.vertical = true;
         this._tickInterval = 1;
     }
+    AppComponent.prototype.ngOnInit = function () {
+        // https://stackblitz.com/edit/multiple-themes-material-so?file=app%2Fapp.component.ts
+        document.body.classList.add('custom-theme', 'mat-app-background');
+        this.overlay.getContainerElement().classList.add('custom-theme');
+    };
     AppComponent.prototype.onChangeVertexDistance = function (event) {
         this.f = event.value;
     };
@@ -113,7 +124,8 @@ var AppComponent = /** @class */ (function () {
             selector: 'app-root',
             template: __webpack_require__(/*! ./app.component.html */ "./src/app/app.component.html"),
             styles: [__webpack_require__(/*! ./app.component.css */ "./src/app/app.component.css")]
-        })
+        }),
+        __metadata("design:paramtypes", [_angular_cdk_overlay__WEBPACK_IMPORTED_MODULE_2__["OverlayContainer"]])
     ], AppComponent);
     return AppComponent;
 }());

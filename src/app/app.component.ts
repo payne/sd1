@@ -1,13 +1,14 @@
 import { coerceNumberProperty } from '@angular/cdk/coercion';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { OverlayContainer } from '@angular/cdk/overlay';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
   d = 1;
   autoTicks = false;
@@ -23,6 +24,14 @@ export class AppComponent {
   f = 0; // 0.25 steps (-20 to +20)
   vertical = true;
   private _tickInterval = 1;
+
+  constructor(private overlay: OverlayContainer) { }
+
+  ngOnInit() {
+    // https://stackblitz.com/edit/multiple-themes-material-so?file=app%2Fapp.component.ts
+    document.body.classList.add('custom-theme', 'mat-app-background');
+    this.overlay.getContainerElement().classList.add('custom-theme');
+  }
 
   onChangeVertexDistance(event) {
     this.f = event.value;
