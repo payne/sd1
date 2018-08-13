@@ -30,7 +30,7 @@ webpackEmptyAsyncContext.id = "./src/$$_lazy_route_resource lazy recursive";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "table.fixed {\r\n  table-layout: fixed;\r\n  width: 240px;\r\n}\r\n\r\n/*Setting the table width is important!*/\r\n\r\ntable.fixed td {\r\n  overflow: hidden;\r\n}\r\n\r\n/*Hide text outside the cell.*/\r\n\r\ntable.fixed td:nth-of-type(1) {\r\n  width: 80px;\r\n}\r\n\r\ntable.fixed td:nth-of-type(2) {\r\n  width: 80px;\r\n}\r\n\r\ntable.fixed td:nth-of-type(3) {\r\n  width: 80px;\r\n}\r\n"
+module.exports = "table.fixed {\r\n  table-layout: fixed;\r\n  width: 210px;\r\n}\r\n\r\n/*Setting the table width is important!*/\r\n\r\ntable.fixed td {\r\n  overflow: hidden;\r\n}\r\n\r\n/*Hide text outside the cell.*/\r\n\r\ntable.fixed td:nth-of-type(1) {\r\n  width: 70px;\r\n}\r\n\r\ntable.fixed td:nth-of-type(2) {\r\n  width: 70px;\r\n}\r\n\r\ntable.fixed td:nth-of-type(3) {\r\n  width: 70px;\r\n}\r\n"
 
 /***/ }),
 
